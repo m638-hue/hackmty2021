@@ -5,9 +5,33 @@ let plazas = document.querySelector("#plazas")
 let rest = document.querySelector("#restaurantes")
 let crowd = document.querySelector("#concurrido")
 let db = (localStorage.getItem("db")) ? JSON.parse(localStorage.getItem("db")) : new Object()
-let topCrowded = []
+let button = document.querySelector("#search")
+let predictionsInput = []
+predContainer = document.querySelector(".extras")
+
 input.addEventListener("input", () => {
     predictInput(input)
+})
+
+button.addEventListener('click', (e) => {
+    if (input.dataset.id == ""){
+        if (predictionsInput.length == 0) return
+        predContainer.style.display = "none"
+        service.getDetails({placeId: predictionsInput[0].place_id}, (details) => {
+            map.panTo({lat: details.geometry.location.lat(), lng: details.geometry.location.lng()})
+        })
+    }
+    else{
+        predContainer.style.display = "none"
+        service.getDetails({placeId: input.dataset.id}, (details) => {
+            map.panTo({lat: details.geometry.location.lat(), lng: details.geometry.location.lng()})
+        })
+    }
+})
+
+document.querySelector(".contenedor").addEventListener("click", (e) => {e.stopPropagation()})
+document.querySelector(".popupbc").addEventListener("click", (e) => {
+    e.target.style.display = "none"
 })
 
 function predictInput(inp) {
@@ -15,13 +39,47 @@ function predictInput(inp) {
     str = inp.value
     request = { input: str, location: map.getCenter(), radius: 20000, type: "shopping_mall" }
 
-    predictions = auto.getPlacePredictions(request, (pre) => {
-        getToPrediction(pre[0])
+    auto.getPlacePredictions(request, (pre) => {
+        showPredictions(pre)
     })
+
+    if (input.value == "") {
+        input.dataset.id = ""
+        predContainer.innerHTML = ""
+        predContainer.style.display = "none"
+        return
+    }
 }
 
-function getToPrediction(pre) {
+function showPredictions(pre) {
+    predictionsInput = pre
+    predContainer = document.querySelector(".extras")
+    if (input.value == "" || pre == null) {
+        predContainer.innerHTML = ""
+        predContainer.style.display = "none"
+        return
+    }
+    predContainer.style.display = 'block'
+    predContainer.innerHTML = ''
+    predContainer.style.height = "8vh"
+
+    for(i = 0; i < pre.length; i++){
+        extraopt = document.createElement('div')
+        extraopt.classList.add('extraopcion')
+        extraopt.innerHTML = pre[i].description
+        extraopt.dataset.id = pre[i].place_id
+        extraopt.onclick = (e) =>{
+            predContainer.style.display = "none"
+            input.dataset.id = e.target.dataset.id
+            input.value = e.target.innerHTML
+        }
+        predContainer.appendChild(extraopt)
+    }
+
+    predContainer.style.height = `${pre.length * 8}vh`
 }
+
+
 
 function getUserPos() {
     // Try HTML5 geolocation.
@@ -64,7 +122,6 @@ function initMap() {
     map.addListener("click", handleClick)
     getUserPos();
     load();
-    crowded()
 }
 
 function isIconMouseEvent(e) {
@@ -72,12 +129,13 @@ function isIconMouseEvent(e) {
 }
 
 function checkDB(id){
-    if (id in db) return
+    if (id in db) return db[id]
 
     to = Math.floor(Math.random() * 500) + 100
     db[id.toString()] = {total: to, actual: Math.floor(Math.random() * to) + 50}
 
     localStorage.setItem("db", JSON.stringify(db));
+    return db[id]
 }
 
 function compare(a, b){
@@ -135,10 +193,34 @@ function popUpInfo(details) {
     day = date.getDay()
     day = (day == 0) ? 6 : day - 1
 
+    console.log(details)
     placeName = details.name;
     photoUrl = (details.photos) ? details.photos[0].getUrl() : "nodisponible.jpg";
     address = details.formatted_address;
     open = (details.opening_hours) ? details.opening_hours.weekday_text[day] : "No disponible"
+    aforo = checkDB(details.place_id)
+    total = aforo["total"]
+    actual = aforo["actual"]
+    percent = Math.floor(actual / total * 100) 
+
+    pop = document.querySelector(".contenedor")
+    title = pop.querySelector(".titulo")
+    img = pop.querySelector(".fotito")
+    bar = pop.querySelector(".actual")
+    barnum = bar.querySelector(".capa")
+    add = pop.querySelector(".dire")
+    hor = pop.querySelector(".horario").querySelector(".dire")
+    text = pop.querySelector(".parrafo")
+
+    img.setAttribute("src", photoUrl);
+    title.innerHTML = placeName
+    bar.style.width = `${percent}%`
+    barnum.innerHTML = `${percent}%`
+    add.innerHTML = address
+    hor.innerHTML = open
+    text.innerHTML = `Aforo de ${actual} / ${total}`
+
+    pop.parentElement.style.display = "flex"
 }
 
 function loadItems(pre, type) {

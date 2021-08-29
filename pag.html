@@ -1,45 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
      <meta charset="UTF-8">
      <LINK REL=StyleSheet HREF="Diseno.css" TITLE="Contemporaneo">
      <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-     
+
      <title>Document</title>
-</head
+</head>
+
 <body>
      <div class="encabezado">SANA DISTANCIA</div>
      <div class="linea"></div>
      <div class="busqueda"></div>
      <div class="field" id="searchform">
-          <input type="text" id="searchterm" placeholder="what are you searching for?" />
+          <input type="text" id="searchterm" placeholder="what are you searching for?" data-id = ""/>
           <div class="extras">
-               <div class="extraopcion">Hola</div>
           </div>
-          
           <button type="button" id="search">Find!</button>
      </div>
-     <div class="mapa"></div>
+     <div class="mapcontainer">
+          <div id="map"></div>
+          <div class="popupbc">
+               <div class="contenedor">
+                    <div class="foto">
+                         <img class="fotito"/>
+                    </div>
+                    <div class="info">
+                         <div class="titulo"> Mc Donald's</div>
+                         <div class="aforo"> 
+                              <div class="total">
+                                   <div class="actual">
+                                        <div class="capa">66%</div>
+                                   </div>
+                              </div>
+                              <div class="parrafo">
+                                   Aforo total de 145/500
+                              </div>
+                         </div>
+                         <div class="ubica">
+                              <i class="fas fa-map-marker-alt fa-2x"></i>
+                              <div class="dire">Hola me llamo Claudia Torres y me gusta la prgramacin</div>
+                         </div>
+                         <div class="horario"> 
+                              <i class="far fa-clock fa-2x"></i>
+                              <div class="dire">Hola me llamo Claudia Torres y me gusta la prgramacin</div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
      <div class="linea1"></div>
+
      <div class="Texto">PLAZAS CERCANAS</div>
      <div class="opciones" id="plazas">
           <div class="opcion1">
-               <div class="imagen"></div>
+               <img class="imagen"/>
                <div class="Datos">
                     <div class="nombres">Nombre</div>
                     <div class="direccion">Ubicacion</div>
                </div>
           </div>
           <div class="opcion1">
-               <div class="imagen"></div>
+               <img class="imagen"/>
                <div class="Datos">
                     <div class="nombres">Nombre</div>
                     <div class="direccion">Ubicacion</div>
                </div>
           </div>
           <div class="opcion1">
-               <div class="imagen"></div>
+               <img class="imagen"/>
                <div class="Datos">
                     <div class="nombres">Nombre</div>
                     <div class="direccion">Ubicacion</div>
@@ -49,50 +80,32 @@
      <div class="Texto">RESTAURANTES CERCANOS</div>
      <div class="opciones" id="restaurantes">
           <div class="opcion1">
-               <div class="imagen"></div>
+               <img class="imagen"/>
                <div class="Datos">
                     <div class="nombres">Nombre</div>
                     <div class="direccion">Ubicacion</div>
                </div>
           </div>
           <div class="opcion1">
-               <div class="imagen"></div>
+               <img class="imagen"/>
                <div class="Datos">
                     <div class="nombres">Nombre</div>
                     <div class="direccion">Ubicacion</div>
                </div>
           </div>
           <div class="opcion1">
-               <div class="imagen"></div>
+               <img class="imagen"/>
                <div class="Datos">
                     <div class="nombres">Nombre</div>
                     <div class="direccion">Ubicacion</div>
                </div>
           </div>
      </div>
-     <div class="Texto">LUGARES CERCANOS CONCURRIDOS</div>
-     <div class="opciones" id="concurrido">
-          <div class="opcion1">
-               <div class="imagen"></div>
-               <div class="Datos">
-                    <div class="nombres">Nombre</div>
-                    <div class="direccion">Ubicacion</div>
-               </div>
-          </div>
-          <div class="opcion1">
-               <div class="imagen"></div>
-               <div class="Datos">
-                    <div class="nombres">Nombre</div>
-                    <div class="direccion">Ubicacion</div>
-               </div>
-          </div>
-          <div class="opcion1">
-               <div class="imagen"></div>
-               <div class="Datos">
-                    <div class="nombres">Nombre</div>
-                    <div class="direccion">Ubicacion</div>
-               </div>
-          </div>
-     </div>
+
+     <script src="script.js"></script>
+     <script src="https://kit.fontawesome.com/0999e96faa.js" crossorigin="anonymous"></script>
+     <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAopUT1gZc0BEImPwfIa138uRAOffqJNc&libraries=places&callback=initMap"></script>
 </body>
+
 </html>

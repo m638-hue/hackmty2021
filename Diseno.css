@@ -1,4 +1,4 @@
-
+ 
 @import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,500;1,400&display=swap');
 
@@ -6,36 +6,6 @@ body{
      margin: 0 0;
      min-height: 100vh;
 }
-
-.popupbc{
-     position: absolute;
-     top: 0;
-     height: 100%;
-     width: 100%;
-     background-color: #00000048;
-     display: none;
-     justify-content: center;
-     align-items: center;
-}
-
-.popup{
-     background-color: white;
-     height: 50%;
-     width: 50%;
-}
-
-#map {
-     height: 100%;
-     
-}
-
-.mapcontainer{
-     width: 100%;
-     position: relative;
-     height: 80vh;
-}
-
-
 .encabezado{
      align-items: center;
      display: flex;
@@ -64,50 +34,34 @@ body{
      min-width: 100vh;
      height: 7vh;
 }
-.field, .predictions {
+.field {
      display:flex;
      position:relative;
      margin:3em auto;
      width:70%;
      flex-direction:row;
      box-shadow:
-     1px 1px 0 rgb(155, 60, 60),
-     2px 2px 0 rgb(155, 60, 60),
-     3px 3px 0 rgb(155, 60, 60),
-     4px 4px 0 rgb(155, 60, 60),
-     5px 5px 0 rgb(155, 60, 60),
-     6px 6px 0 rgb(155, 60, 60),
-     7px 7px 0 rgb(155, 60, 60);
+      1px 1px 0 rgb(155, 60, 60),
+      2px 2px 0 rgb(155, 60, 60),
+      3px 3px 0 rgb(155, 60, 60),
+      4px 4px 0 rgb(155, 60, 60),
+      5px 5px 0 rgb(155, 60, 60),
+      6px 6px 0 rgb(155, 60, 60),
+      7px 7px 0 rgb(155, 60, 60);
 }
-
-/*.field{
-     margin-bottom: 0;
-}*/
-
-.predictions{
-     margin-top: 0;
-}
-
-.pre{
-     padding: .6em;
-     display:block;
-     font:1.2em 'Montserrat Alternates';
-     border:0.2em solid rgb(197, 94, 94);
-     width: 100%;
-}
-
+   
 .field>input[type=text],
 .field>button {
      display:block;
      font:1.2em 'Montserrat Alternates';
 }
-
+   
 .field>input[type=text] {
      flex:1;
      padding:0.6em;
      border:0.2em solid rgb(197, 94, 94);
 }
-
+   
 .field>button {
      padding:0.6em 0.8em;
      background-color:rgb(194, 91, 91);
@@ -115,6 +69,10 @@ body{
      border:none;
 }
 
+.mapa{
+     min-width: 100vh;
+     height: 80vh;
+}
 
 .Texto{
      min-width: 100vh;
@@ -168,5 +126,113 @@ body{
      display: flex;
      justify-content: center;
      font-family: 'Ubuntu', sans-serif;
+<<<<<<< HEAD
      text-align: center;
+=======
+}
+.contenedor{
+     position: absolute;
+     top: 25%;
+     left: 30%;
+     width: 40%;
+     height: 50%;
+     background-color: rgb(255, 255, 255);
+     border-radius: 10%;
+     box-shadow: 10px 10px rgb(219, 219, 219);
+     border: 1px solid rgb(219,219,219);
+}
+.foto{
+     width: 45%;
+     height: 100%;
+     border-top-left-radius: 10%;
+     border-bottom-left-radius: 10%;
+     float: left;
+}
+.fotito{
+     width: 90%;
+     height: 70%;
+     background-color: aqua;
+     margin-left: 15%;
+     margin-top: 20%;
+}
+.info{
+     width: 55%;
+     height: 100%;
+     float: left;
+     border-top-right-radius: 10%;
+     border-bottom-right-radius: 10%;
+}
+.titulo{
+     width: 100%;
+     height: 30%;
+     border-top-right-radius: 30%;
+     align-items: center;
+     display: flex;
+     justify-content: center;
+     font-family: 'Source Code Pro', monospace;
+     font-size: 150%;
+     text-align: center;
+}
+.aforo{
+     width: 100%;
+     height: 25%;
+     align-items: center;
+     display: flex;
+     justify-content: center;
+}
+
+i{
+     text-align: center;
+     padding-top: 2vh;
+     float: left;
+     height: 100%;
+     width: 30%;
+}
+.dire{
+     height: 100%;
+     width: 60%;
+}
+.capa{
+     color: white;
+     width: 100%;
+     height: 100%;
+
+     font-family: 'Source Code Pro', monospace;
+     text-align: center;
+     align-items: center;
+     display: flex;
+     justify-content: center;
+     float: right;
+}
+.total{
+     margin-top: -15%;
+     width: 58%;
+     height: 50%;
+     border: 1px solid black;
+     border-radius: 10%;
+}
+.actual{
+     width: 67%;
+     height: 100%;
+     background-color: brown;
+     border-radius: 10%;
+}
+.ubica, .horario{
+     width: 100%;
+     height: 18%;
+     align-items: center;
+     display: flex;
+     justify-content: center;
+}
+.parrafo{
+     top: 41%;
+     left: 58%;
+     margin:1vh;
+     position: absolute;
+     width: 30vh;
+     height: 3vh;
+     font-family: 'Source Code Pro', monospace;
+     font-size: 10px;
+     clear: left;
+>>>>>>> b123b5eafaacd7c51c64590e128f11c134e1b4b6
 }

@@ -13,6 +13,11 @@ input.addEventListener("input", () => {
     predictInput(input)
 })
 
+document.querySelector('body').addEventListener("click", (e) => {
+    if(e.target.classList.contains('extras')) return
+    else predContainer.style.display = 'none'
+})
+
 button.addEventListener('click', (e) => {
     if (input.dataset.id == ""){
         if (predictionsInput.length == 0) return

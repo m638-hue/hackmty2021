@@ -287,4 +287,6 @@ body{
 }
 .extraopcion:hover{
      background-color: rgb(238, 238, 238);
+     
+     box-shadow: 10px 10px 10px rgb(219, 219, 219);
 }

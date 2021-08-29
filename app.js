@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = import("fs");
 csv = fs.readFileSync("CSV_file.csv")
 var array = csv.toString().split("\r");
 let result = [];
@@ -27,4 +27,4 @@ for (let i = 1; i < array.length - 1; i++) {
 	result.push(obj)
 }
 let json = JSON.stringify(result);
-fs.writeFileSync('output.json', json);
+console.log(json)

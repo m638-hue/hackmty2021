@@ -1,0 +1,76 @@
+ 
+@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
+
+body{
+     margin: 0 0;
+     min-height: 100vh;
+}
+.encabezado{
+     align-items: center;
+     display: flex;
+     justify-content: center;
+     min-width: 100vh;
+     height: 20vh;
+     background-color:white;
+     color: rgba(201, 31, 31, 0.63);
+     font-family: 'BenchNine', sans-serif;
+     font-size: 500%;
+}
+.linea, .linea1{
+     min-width: 100vh;
+     height: 5vh;
+}
+.linea{
+     
+     background-color: rgb(167, 0, 0);
+}
+.linea1{
+     margin-top: 2em;
+     background-color: white;
+}
+.busqueda{
+     background-color: rgba(194, 134, 134, 0.281);
+     min-width: 100vh;
+     height: 7vh;
+}
+.field {
+     display:flex;
+     position:relative;
+     margin:3em auto;
+     width:70%;
+     flex-direction:row;
+     box-shadow:
+      1px 1px 0 rgb(155, 60, 60),
+      2px 2px 0 rgb(155, 60, 60),
+      3px 3px 0 rgb(155, 60, 60),
+      4px 4px 0 rgb(155, 60, 60),
+      5px 5px 0 rgb(155, 60, 60),
+      6px 6px 0 rgb(155, 60, 60),
+      7px 7px 0 rgb(155, 60, 60);
+}
+   
+.field>input[type=text],
+.field>button {
+     display:block;
+     font:1.2em 'Montserrat Alternates';
+}
+   
+.field>input[type=text] {
+     flex:1;
+     padding:0.6em;
+     border:0.2em solid rgb(197, 94, 94);
+}
+   
+.field>button {
+     padding:0.6em 0.8em;
+     background-color:rgb(194, 91, 91);
+     color:white;
+     border:none;
+}
+
+.mapa{
+     min-width: 100vh;
+     height: 80vh;
+     background-color: aqua;
+}
+

@@ -13,8 +13,12 @@ function predictInput(inp){
     request = {input: str, location: map.getCenter(), radius: 5000, type: "locality"}
     
     predictions = auto.getPlacePredictions(request, (pre) => {
-        
+        getToPrediction(pre[0])
     })
+}
+
+function getToPrediction(pre) {
+    console.log
 }
 
 function getUserPos() {

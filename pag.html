@@ -5,28 +5,105 @@
      <meta charset="UTF-8">
      <LINK REL=StyleSheet HREF="Diseno.css" TITLE="Contemporaneo">
      <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
      <title>Document</title>
-</head> 
+</head>
+
 <body>
-<div class="encabezado">SANA DISTANCIA</div>
-<div class="linea"></div>
-<div class="busqueda"></div>
-<div class="field" id="searchform">
-     <input type="text" id="searchterm" placeholder="what are you searching for?" />
-     <button type="button" id="search">Find!</button>
-</div>
-<div class="mapcontainer">
-     <div id="map"></div>
-     <div class="popupbc">
-          <div class="popup">
-               <img src="" alt="Foto del lugar">
+     <div class="encabezado">SANA DISTANCIA</div>
+     <div class="linea"></div>
+     <div class="busqueda"></div>
+     <div class="field" id="searchform">
+          <input type="text" id="searchterm" placeholder="what are you searching for?" />
+          <button type="button" id="search">Find!</button>
+     </div>
+     <div class="mapcontainer">
+          <div id="map"></div>
+          <div class="popupbc">
+               <div class="popup">
+                    <img src="" alt="Foto del lugar">
+               </div>
           </div>
      </div>
-</div>
-<div class="linea1"></div>
+     <div class="linea1"></div>
 
-<script src="script.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAopUT1gZc0BEImPwfIa138uRAOffqJNc&libraries=places&callback=initMap"></script>
+     <div class="Texto">PLAZAS CERCANAS</div>
+     <div class="opciones" id="plazas">
+          <div class="opcion1">
+               <div class="imagen"></div>
+               <div class="Datos">
+                    <div class="nombres">Nombre</div>
+                    <div class="direccion">Ubicacion</div>
+               </div>
+          </div>
+          <div class="opcion1">
+               <div class="imagen"></div>
+               <div class="Datos">
+                    <div class="nombres">Nombre</div>
+                    <div class="direccion">Ubicacion</div>
+               </div>
+          </div>
+          <div class="opcion1">
+               <div class="imagen"></div>
+               <div class="Datos">
+                    <div class="nombres">Nombre</div>
+                    <div class="direccion">Ubicacion</div>
+               </div>
+          </div>
+     </div>
+     <div class="Texto">RESTAURANTES CERCANOS</div>
+     <div class="opciones" id="restaurantes">
+          <div class="opcion1">
+               <div class="imagen"></div>
+               <div class="Datos">
+                    <div class="nombres">Nombre</div>
+                    <div class="direccion">Ubicacion</div>
+               </div>
+          </div>
+          <div class="opcion1">
+               <div class="imagen"></div>
+               <div class="Datos">
+                    <div class="nombres">Nombre</div>
+                    <div class="direccion">Ubicacion</div>
+               </div>
+          </div>
+          <div class="opcion1">
+               <div class="imagen"></div>
+               <div class="Datos">
+                    <div class="nombres">Nombre</div>
+                    <div class="direccion">Ubicacion</div>
+               </div>
+          </div>
+     </div>
+     <div class="Texto">LUGARES CERCANOS CONCURRIDOS</div>
+     <div class="opciones" id="concurrido">
+          <div class="opcion1">
+               <div class="imagen"></div>
+               <div class="Datos">
+                    <div class="nombres">Nombre</div>
+                    <div class="direccion">Ubicacion</div>
+               </div>
+          </div>
+          <div class="opcion1">
+               <div class="imagen"></div>
+               <div class="Datos">
+                    <div class="nombres">Nombre</div>
+                    <div class="direccion">Ubicacion</div>
+               </div>
+          </div>
+          <div class="opcion1">
+               <div class="imagen"></div>
+               <div class="Datos">
+                    <div class="nombres">Nombre</div>
+                    <div class="direccion">Ubicacion</div>
+               </div>
+          </div>
+     </div>
+
+     <script src="script.js"></script>
+     <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAopUT1gZc0BEImPwfIa138uRAOffqJNc&libraries=places&callback=initMap"></script>
 </body>
 
 </html>

@@ -1,5 +1,22 @@
 let map, infoWindow, service;
 let popUp = document.querySelector(".popup")
+let input = document.querySelector("#searchterm")
+
+input.addEventListener("input", () =>{
+    predictInput(input)
+})
+
+function predictInput(inp){
+    console.log(inp.value)
+    auto = new google.maps.places.AutocompleteService()
+    str = inp.value
+    request = {input: str, location: map.getCenter(), radius: 5000, type: "locality"}
+    
+    predictions = auto.getPlacePredictions(request, (pre) => {
+        
+    })
+}
+
 function getUserPos() {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -36,6 +53,7 @@ function initMap() {
     const locationButton = document.createElement("button");
     locationButton.textContent = "Pan to Current Location";
     locationButton.classList.add("custom-map-control-button");
+    locationButton.addEventListener('click', getUserPos)
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
 
     map.addListener("click", handleClick)
@@ -47,19 +65,11 @@ function isIconMouseEvent(e) {
 }
 
 function handleClick(event) {
-    console.log("You clicked on: " + event.latLng);
-
-    // If the event has a placeId, use it.
     if (isIconMouseEvent(event)) {
-        console.log("You clicked on place:" + event.placeId);
-        // Calling e.stop() on the event prevents the default info window from
-        // showing.
-        // If you call stop here when there is no placeId you will prevent some
-        // other map click event handlers from receiving the event.
-        //event.stop();
-
+        event.stop()
         if (event.placeId) {
-            service.getDetails({placeId: event.placeId}, (details) => {
+            service.getDetails({placeId: event.placeId}, (details) => {               
+                map.panTo(event.latLng)
                 popUpInfo(details);
             })
         }
@@ -67,8 +77,17 @@ function handleClick(event) {
 }
 
 function popUpInfo (details) {
+    date = new Date()
+    day = date.getDay()
+    day = (day == 0) ? 6 : day - 1
 
+    placeName = details.name;
+    photoUrl = details.photos[0].getUrl()
+    address = details.formatted_address;
+    open = (details.opening_hours) ? details.opening_hours.weekday_text[day] : "No disponible"
 }
+
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -77,5 +96,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             ? "Error: The Geolocation service failed."
             : "Error: Your browser doesn't support geolocation."
     );
+
     infoWindow.open(map);
 }
